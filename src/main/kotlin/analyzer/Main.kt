@@ -9,15 +9,7 @@ fun main(args: Array<String>) {
     }
 
     val piece = loadPiece(filename)
-
-    println("Instruments: ${piece.instruments.joinToString(", ") { it.name }}")
-    println("Bars:")
-    piece.bars.forEach { bar ->
-        println("Bar ${bar.number}:")
-        bar.registerMap.forEach { (instrument, register) ->
-            println("  ${instrument.name}: ${register.numbersToProportions}")
-        }
-    }
+    printSummary(piece)
 }
 
 private fun getFilename(args: Array<String>): String {
